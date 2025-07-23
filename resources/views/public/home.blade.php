@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('title', 'Accueil - The GOAT  Tech')
-@section('description', 'Découvrez mes derniers articles sur le développement web, les technologies modernes et mes expériences en programmation.')
+@section('description', 'Découvrez mes derniers articles sur le développement web, les technologies modernes, mes expériences en programmation ansi que mes recherches sur des differentes sujets.')
 
 @section('content')
 <!-- Hero Section Moderne -->
