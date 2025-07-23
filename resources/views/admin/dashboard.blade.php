@@ -30,7 +30,7 @@
                 </svg>
             </div>
             <div class="ml-4">
-                <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Articles Publiés</p>
+                <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Published articles</p>
                 <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ \App\Models\Article::where('status', 'published')->count() }}</p>
             </div>
         </div>
@@ -45,7 +45,7 @@
                 </svg>
             </div>
             <div class="ml-4">
-                <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Brouillons</p>
+                <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Draft</p>
                 <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ \App\Models\Article::where('status', 'draft')->count() }}</p>
             </div>
         </div>
@@ -108,7 +108,7 @@
                 </svg>
             </div>
             <div class="ml-4">
-                <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Aujourd'hui</p>
+                <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Today</p>
                 <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $stats['visitors_today'] ?? 0 }}</p>
             </div>
         </div>
@@ -119,14 +119,14 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
     <!-- Quick Actions Card -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Actions rapides</h3>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick actions</h3>
         <div class="space-y-3">
             <a href="{{ route('test.create.article') }}"
                class="flex items-center p-3 bg-indigo-50 dark:bg-indigo-900 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-800 transition-colors">
                 <svg class="w-5 h-5 text-indigo-600 dark:text-indigo-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                 </svg>
-                <span class="text-indigo-700 dark:text-indigo-300 font-medium">Nouvel article</span>
+                <span class="text-indigo-700 dark:text-indigo-300 font-medium">Newarticle</span>
             </a>
 
             <a href="{{ route('test.create.category') }}"
@@ -134,7 +134,7 @@
                 <svg class="w-5 h-5 text-green-600 dark:text-green-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                 </svg>
-                <span class="text-green-700 dark:text-green-300 font-medium">Nouvelle catégorie</span>
+                <span class="text-green-700 dark:text-green-300 font-medium">New Catégory</span>
             </a>
 
             <a href="{{ route('test.create.tag') }}"
@@ -142,7 +142,7 @@
                 <svg class="w-5 h-5 text-purple-600 dark:text-purple-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                 </svg>
-                <span class="text-purple-700 dark:text-purple-300 font-medium">Nouveau tag</span>
+                <span class="text-purple-700 dark:text-purple-300 font-medium">New tag</span>
             </a>
             
             <a href="{{ route('public.home') }}" 
@@ -151,14 +151,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                 </svg>
-                <span class="text-gray-700 dark:text-gray-300 font-medium">Voir le site</span>
+                <span class="text-gray-700 dark:text-gray-300 font-medium">See the site</span>
             </a>
         </div>
     </div>
 
     <!-- Recent Activity -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Activité récente</h3>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent activity</h3>
         <div class="space-y-4">
             @if(isset($recent_articles) && $recent_articles->count() > 0)
                 @foreach($recent_articles as $article)
@@ -185,7 +185,7 @@
                     <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
-                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Aucun article récent</p>
+                    <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">No recent article</p>
                 </div>
             @endif
         </div>
@@ -196,7 +196,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <!-- Articles by Status -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Articles par statut</h3>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Articles per status</h3>
         <div class="space-y-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
@@ -208,7 +208,7 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <div class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
-                    <span class="text-sm text-gray-600 dark:text-gray-400">Brouillons</span>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">Draft</span>
                 </div>
                 <span class="text-sm font-medium text-gray-900 dark:text-white">{{ \App\Models\Article::where('status', 'draft')->count() }}</span>
             </div>
@@ -217,7 +217,7 @@
 
     <!-- Popular Categories -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Catégories populaires</h3>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Popular categories</h3>
         <div class="space-y-4">
             @if(isset($popular_categories) && $popular_categories->count() > 0)
                 @foreach($popular_categories as $category)
@@ -231,7 +231,7 @@
                 @endforeach
             @else
                 <div class="text-center py-4">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Aucune catégorie</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">No category</p>
                 </div>
             @endif
         </div>

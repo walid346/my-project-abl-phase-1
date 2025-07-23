@@ -13,7 +13,7 @@
                     <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
                     </svg>
-                    Accueil
+                    Home
                 </a>
             </li>
             <li>
@@ -111,7 +111,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                     <div class="text-left">
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Article précédent</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">Previous article</div>
                         <div class="font-medium">{{ Str::limit($previousArticle->title, 40) }}</div>
                     </div>
                 </a>
@@ -123,7 +123,7 @@
                 <a href="{{ route('public.article.show', $nextArticle->slug) }}" 
                    class="flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300">
                     <div class="text-right">
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Article suivant</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">Next article</div>
                         <div class="font-medium">{{ Str::limit($nextArticle->title, 40) }}</div>
                     </div>
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

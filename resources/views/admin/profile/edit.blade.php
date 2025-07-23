@@ -7,13 +7,13 @@
 <div class="max-w-2xl mx-auto">
     <!-- Header -->
     <div class="mb-6">
-        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Informations du profil</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Mettez à jour vos informations personnelles et votre mot de passe</p>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Profile information</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Update your personal information and password</p>
     </div>
 
     <!-- Profile Information -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
-        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Informations personnelles</h3>
+        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Personal information</h3>
         
         <form method="POST" action="{{ route('admin.profile.update') }}" class="space-y-6">
             @csrf
@@ -22,7 +22,7 @@
             <!-- Username -->
             <div>
                 <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Nom d'utilisateur
+                   User name
                 </label>
                 <input type="text" 
                        id="username" 
@@ -38,7 +38,7 @@
             <!-- Email -->
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Adresse email
+                     email adresse
                 </label>
                 <input type="email" 
                        id="email" 
@@ -58,7 +58,7 @@
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    Sauvegarder
+                    Save
                 </button>
             </div>
         </form>
@@ -66,7 +66,7 @@
 
     <!-- Change Password -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
-        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Changer le mot de passe</h3>
+        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Change password</h3>
         
         <form method="POST" action="{{ route('admin.profile.password') }}" class="space-y-6">
             @csrf
@@ -75,7 +75,7 @@
             <!-- Current Password -->
             <div>
                 <label for="current_password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Mot de passe actuel
+                  Current password
                 </label>
                 <input type="password" 
                        id="current_password" 
@@ -90,7 +90,7 @@
             <!-- New Password -->
             <div>
                 <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Nouveau mot de passe
+                   New password
                 </label>
                 <input type="password" 
                        id="password" 
@@ -105,7 +105,7 @@
             <!-- Confirm Password -->
             <div>
                 <label for="password_confirmation" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Confirmer le nouveau mot de passe
+                    Confirm new password
                 </label>
                 <input type="password" 
                        id="password_confirmation" 
@@ -121,7 +121,7 @@
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                     </svg>
-                    Changer le mot de passe
+                    Change password
                 </button>
             </div>
         </form>
@@ -129,21 +129,21 @@
 
     <!-- Account Statistics -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Statistiques du compte</h3>
+        <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Account statistics</h3>
         
         <div class="grid grid-cols-2 gap-4">
             <div class="text-center">
                 <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
                     {{ Auth::guard('admin')->user()->articles()->count() }}
                 </div>
-                <div class="text-sm text-gray-500 dark:text-gray-400">Articles créés</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">Created items</div>
             </div>
             
             <div class="text-center">
                 <div class="text-2xl font-bold text-green-600 dark:text-green-400">
                     {{ Auth::guard('admin')->user()->articles()->where('status', 'published')->count() }}
                 </div>
-                <div class="text-sm text-gray-500 dark:text-gray-400">Articles publiés</div>
+                <div class="text-sm text-gray-500 dark:text-gray-400">Published articles</div>
             </div>
         </div>
 

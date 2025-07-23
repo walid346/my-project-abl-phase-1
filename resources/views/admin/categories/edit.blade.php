@@ -8,7 +8,7 @@
     <!-- Header -->
     <div class="flex items-center justify-between mb-6">
         <div>
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Modifier la catégorie</h2>
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">edit category</h2>
             <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{{ $category->name }}</p>
         </div>
         <div class="flex space-x-2">
@@ -19,14 +19,14 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                 </svg>
-                Voir sur le site
+               See on the site
             </a>
             <a href="{{ route('admin.categories.index') }}" 
                class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
-                Retour
+                back
             </a>
         </div>
     </div>
@@ -40,7 +40,7 @@
             <!-- Name -->
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Nom de la catégorie <span class="text-red-500">*</span>
+                    category name <span class="text-red-500">*</span>
                 </label>
                 <input type="text" 
                        id="name" 
@@ -57,14 +57,14 @@
             <!-- Current Slug -->
             <div>
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    URL actuelle (slug)
+                   Current URL (slug)
                 </label>
                 <div class="flex items-center">
                     <span class="text-sm text-gray-500 dark:text-gray-400">{{ url('/category/') }}/</span>
                     <span class="text-sm font-medium text-indigo-600 dark:text-indigo-400 ml-1">{{ $category->slug }}</span>
                 </div>
                 <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                    L'URL sera mise à jour automatiquement si vous modifiez le nom
+                   The URL will be updated automatically if you change the name
                 </p>
             </div>
 
@@ -81,7 +81,7 @@
                 @error('description')
                     <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                 @enderror
-                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Cette description peut être affichée sur le site public</p>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">This description can be displayed on the public site</p>
             </div>
 
             <!-- Image de catégorie -->
@@ -113,7 +113,7 @@
                                 <span>{{ $category->image ? 'Changer l\'image' : 'Télécharger un fichier' }}</span>
                                 <input id="image" name="image" type="file" accept="image/*" class="sr-only">
                             </label>
-                            <p class="pl-1">ou glisser-déposer</p>
+                            <p class="pl-1">or drag and drop</p>
                         </div>
                         <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF jusqu'à 10MB</p>
 
@@ -121,7 +121,7 @@
                         <div id="image-preview" class="hidden mt-4">
                             <img id="preview-img" src="" alt="Prévisualisation" class="mx-auto max-h-48 rounded-lg shadow-md">
                             <button type="button" id="remove-image" class="mt-2 text-sm text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300">
-                                Annuler le changement
+                               Cancel change
                             </button>
                         </div>
                     </div>
@@ -131,9 +131,9 @@
                 @enderror
                 <div class="mt-2 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                     <p class="text-sm text-blue-700 dark:text-blue-300">
-                        <strong>Important :</strong> Cette image sera utilisée par défaut pour tous les articles de cette catégorie qui n'ont pas d'image spécifique.
+                        <strong>Important :</strong> This image will be used by default for all items in this category that do not have a specific image.
                         @if($category->articles()->whereNull('image')->count() > 0)
-                            <br>Actuellement, <strong>{{ $category->articles()->whereNull('image')->count() }} article(s)</strong> utiliseront cette nouvelle image.
+                            <br>Actuellement, <strong>{{ $category->articles()->whereNull('image')->count() }} article(s)</strong> will use this new image.
                         @endif
                     </p>
                 </div>
@@ -141,15 +141,15 @@
 
             <!-- Stats -->
             <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
-                <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-3">Statistiques</h3>
+                <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-3">Statistics</h3>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{{ $category->articles_count }}</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Article(s) associé(s)</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">Related article(s)</div>
                     </div>
                     <div>
                         <div class="text-2xl font-bold text-gray-600 dark:text-gray-400">{{ $category->created_at->format('d/m/Y') }}</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Date de création</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">Creation date</div>
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@
     <!-- Articles in this category -->
     @if($category->articles_count > 0)
         <div class="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
-            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Articles dans cette catégorie</h3>
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-4">Articles in this category</h3>
             <div class="space-y-3">
                 @foreach($category->articles()->latest()->take(5)->get() as $article)
                     <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
@@ -198,7 +198,7 @@
                     <div class="text-center">
                         <a href="{{ route('admin.articles.index', ['category' => $category->id]) }}" 
                            class="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300">
-                            Voir tous les articles ({{ $category->articles_count }})
+                          See all articles ({{ $category->articles_count }})
                         </a>
                     </div>
                 @endif
@@ -214,7 +214,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16c-.77.833.192 2.5 1.732 2.5z"></path>
                 </svg>
                 <div>
-                    <h3 class="text-sm font-medium text-yellow-800 dark:text-yellow-200">Attention</h3>
+                    <h3 class="text-sm font-medium text-yellow-800 dark:text-yellow-200">be careful</h3>
                     <div class="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
                         Cette catégorie contient {{ $category->articles_count }} article(s). 
                         Si vous la supprimez, les articles ne seront pas supprimés mais n'auront plus de catégorie.

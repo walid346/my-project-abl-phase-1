@@ -7,8 +7,8 @@
 <!-- Header with actions -->
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
     <div>
-        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Gestion des tags</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Étiquetez vos articles pour une meilleure organisation</p>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Tag management</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Label your items for better organization</p>
     </div>
     <div class="mt-4 sm:mt-0">
         <a href="{{ route('admin.tags.create') }}" 
@@ -16,7 +16,7 @@
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
             </svg>
-            Nouveau tag
+               New tag
         </a>
     </div>
 </div>
@@ -32,13 +32,13 @@
                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white">
         </div>
         <select name="sort" class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white">
-            <option value="name" {{ request('sort') === 'name' ? 'selected' : '' }}>Nom A-Z</option>
-            <option value="articles_count" {{ request('sort') === 'articles_count' ? 'selected' : '' }}>Plus utilisés</option>
-            <option value="created_at" {{ request('sort') === 'created_at' ? 'selected' : '' }}>Plus récents</option>
+            <option value="name" {{ request('sort') === 'name' ? 'selected' : '' }}>Name A-Z</option>
+            <option value="articles_count" {{ request('sort') === 'articles_count' ? 'selected' : '' }}>More used</option>
+            <option value="created_at" {{ request('sort') === 'created_at' ? 'selected' : '' }}>latest</option>
         </select>
         <button type="submit" 
                 class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors">
-            Filtrer
+            Filter
         </button>
         <a href="{{ route('admin.tags.index') }}" 
            class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
@@ -78,7 +78,7 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                                         </svg>
-                                        Voir sur le site
+                                        See on the site
                                     </a>
                                 @endif
                                 
@@ -87,7 +87,7 @@
                                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
                                     </svg>
-                                    Modifier
+                                    edit
                                 </a>
                                 
                                 <form method="POST" action="{{ route('admin.tags.destroy', $tag) }}" 
@@ -191,15 +191,15 @@
             <svg class="mx-auto h-24 w-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
             </svg>
-            <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Aucun tag trouvé</h3>
-            <p class="mt-2 text-gray-500 dark:text-gray-400">Commencez par créer votre premier tag pour étiqueter vos articles.</p>
+            <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">No tags found</h3>
+            <p class="mt-2 text-gray-500 dark:text-gray-400">Start by creating your first tag to label your items.</p>
             <div class="mt-6">
                 <a href="{{ route('admin.tags.create') }}" 
                    class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
-                    Créer un tag
+                   create tag
                 </a>
             </div>
         </div>
@@ -231,7 +231,7 @@
                     </svg>
                 </div>
                 <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Tags Utilisés</p>
+                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Tags Used</p>
                     <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $tags->where('articles_count', '>', 0)->count() }}</p>
                 </div>
             </div>
@@ -245,7 +245,7 @@
                     </svg>
                 </div>
                 <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Tags Inutilisés</p>
+                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Unused tags</p>
                     <p class="text-2xl font-semibold text-gray-900 dark:text-white">{{ $tags->where('articles_count', 0)->count() }}</p>
                 </div>
             </div>

@@ -7,8 +7,8 @@
 <!-- Header with actions -->
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
     <div>
-        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Gestion des catégories</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Organisez vos articles par catégories</p>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Category managements</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Organize your articles by category</p>
     </div>
     <div class="mt-4 sm:mt-0">
         <a href="{{ route('admin.categories.create') }}" 
@@ -16,7 +16,7 @@
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
             </svg>
-            Nouvelle catégorie
+           New category
         </a>
     </div>
 </div>
@@ -28,12 +28,12 @@
             <input type="text" 
                    name="search" 
                    value="{{ request('search') }}"
-                   placeholder="Rechercher une catégorie..."
+                   placeholder="{{ __('public.search_category') }}"
                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white">
         </div>
         <button type="submit" 
                 class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors">
-            Rechercher
+            Search
         </button>
         <a href="{{ route('admin.categories.index') }}" 
            class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
@@ -79,7 +79,7 @@
                         <a href="{{ route('public.category.filter', $category->slug) }}" 
                            target="_blank"
                            class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
-                            Voir sur le site
+                            {{ __('public.view_on_site') }}
                         </a>
                         <div class="flex space-x-2">
                             <a href="{{ route('admin.categories.edit', $category) }}" 
@@ -91,7 +91,7 @@
                             
                             <form method="POST" action="{{ route('admin.categories.destroy', $category) }}" 
                                   class="inline-block"
-                                  onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ? Les articles associés ne seront pas supprimés.')">
+                                  onsubmit="return confirm('{{ __('public.delete_category_confirm') }}')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" 
@@ -119,15 +119,15 @@
             <svg class="mx-auto h-24 w-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
             </svg>
-            <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Aucune catégorie trouvée</h3>
-            <p class="mt-2 text-gray-500 dark:text-gray-400">Commencez par créer votre première catégorie pour organiser vos articles.</p>
+            <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">No category found</h3>
+            <p class="mt-2 text-gray-500 dark:text-gray-400">Start by creating your first category to organize your articles.</p>
             <div class="mt-6">
                 <a href="{{ route('admin.categories.create') }}" 
                    class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
-                    Créer une catégorie
+                   create category
                 </a>
             </div>
         </div>

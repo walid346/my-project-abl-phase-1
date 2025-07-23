@@ -7,8 +7,8 @@
 <!-- Header with actions -->
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
     <div>
-        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Gestion des articles</h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Créez, modifiez et gérez vos articles</p>
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Product management</h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Create, modify and manage your articles</p>
     </div>
     <div class="mt-4 sm:mt-0">
         <a href="{{ route('admin.articles.create') }}" 
@@ -16,7 +16,7 @@
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
             </svg>
-            Nouvel article
+            New article
         </a>
     </div>
 </div>
@@ -26,7 +26,7 @@
     <form method="GET" action="{{ route('admin.articles.index') }}" class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <!-- Search -->
         <div>
-            <label for="search" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Rechercher</label>
+            <label for="search" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">search</label>
             <input type="text" 
                    id="search" 
                    name="search" 
@@ -37,7 +37,7 @@
 
         <!-- Status Filter -->
         <div>
-            <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Statut</label>
+            <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Status</label>
             <select id="status" 
                     name="status"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white">
@@ -49,7 +49,7 @@
 
         <!-- Category Filter -->
         <div>
-            <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Catégorie</label>
+            <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Catégory</label>
             <select id="category" 
                     name="category"
                     class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white">
@@ -66,7 +66,7 @@
         <div class="flex items-end space-x-2">
             <button type="submit" 
                     class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors">
-                Filtrer
+                filter
             </button>
             <a href="{{ route('admin.articles.index') }}" 
                class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
@@ -87,10 +87,10 @@
                             Article
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                            Catégorie
+                            Catégory
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
-                            Statut
+                            Status
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
                             Date
@@ -201,7 +201,7 @@
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                     </svg>
-                    Créer un article
+                    Create article
                 </a>
             </div>
         </div>

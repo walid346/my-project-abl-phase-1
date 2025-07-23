@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
-@section('title', 'Accueil - The GOAT  Tech')
-@section('description', 'Découvrez mes derniers articles sur le développement web, les technologies modernes, mes expériences en programmation ansi que mes recherches sur des differentes sujets.')
+@section('title', __('public.home_meta_title'))
+@section('description', __('public.home_meta_description'))
 
 @section('content')
 <!-- Hero Section Moderne -->
@@ -20,19 +20,19 @@
             <!-- Badge moderne -->
             <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium mb-8">
                 <span class="text-lg mr-2">🐐</span>
-                Nouveau contenu chaque semaine
+                {{ __('public.new_content_weekly') }}
             </div>
 
             <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Bienvenue sur
+                {{ __('public.welcome_to') }}
                 <span class="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                    The GOAT Tech
+                    {{ __('public.site_title') }}
                 </span>
             </h1>
 
             <p class="text-xl md:text-2xl text-indigo-100 mb-12 max-w-4xl mx-auto leading-relaxed">
-                Innovation, technologie et expertise à partager !
-                <span class="block mt-2 text-lg text-cyan-200">Innovation, technologie et expertise à partager !</span>
+                {{ __('public.hero_subtitle') }}
+                <span class="block mt-2 text-lg text-cyan-200">{{ __('public.discover_articles') }}</span>
             </p>
 
             <div class="flex justify-center">
@@ -40,7 +40,7 @@
                     <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                     </svg>
-                    Découvrir les articles
+                    {{ __('public.explore_articles') }}
                     <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                     </svg>
@@ -51,19 +51,19 @@
             <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
                 <div class="text-center">
                     <div class="text-3xl font-bold text-white">{{ $articles->total() ?? 0 }}</div>
-                    <div class="text-indigo-200 text-sm">Articles</div>
+                    <div class="text-indigo-200 text-sm">{{ __('public.articles') }}</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-white">12K+</div>
-                    <div class="text-indigo-200 text-sm">Lecteurs</div>
+                    <div class="text-indigo-200 text-sm">{{ __('public.readers') }}</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-white">7</div>
-                    <div class="text-indigo-200 text-sm">Catégories</div>
+                    <div class="text-indigo-200 text-sm">{{ __('public.categories') }}</div>
                 </div>
                 <div class="text-center">
                     <div class="text-3xl font-bold text-white">2025</div>
-                    <div class="text-indigo-200 text-sm">Depuis</div>
+                    <div class="text-indigo-200 text-sm">{{ __('public.since') }}</div>
                 </div>
             </div>
         </div>
@@ -84,8 +84,8 @@
         <div class="lg:w-2/3">
             <div class="flex items-center justify-between mb-12">
                 <div>
-                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">Derniers articles</h2>
-                    <p class="text-gray-600 dark:text-gray-400">Découvrez mes dernières réflexions et tutoriels</p>
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">{{ __('public.latest_articles') }}</h2>
+                    <p class="text-gray-600 dark:text-gray-400">{{ __('public.latest_thoughts') }}</p>
                 </div>
 
 
@@ -93,7 +93,7 @@
                 <!-- Filter by category -->
                 @if(request('category'))
                     <div class="flex items-center space-x-2">
-                        <span class="text-sm text-gray-500 dark:text-gray-400">Filtré par:</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">{{ __('public.filtered_by') }}</span>
                         <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200">
                             {{ request('category') }}
                             <a href="{{ route('public.home') }}" class="ml-2 text-indigo-600 hover:text-indigo-800">
@@ -207,7 +207,7 @@
                                     <div class="flex items-center justify-between">
                                         <a href="{{ route('public.article.show', $article->slug) }}"
                                            class="group/btn inline-flex items-center px-6 py-3 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg">
-                                            Lire l'article
+                                            read article
                                             <svg class="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                             </svg>
@@ -231,8 +231,8 @@
                     <svg class="mx-auto h-24 w-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
-                    <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Aucun article publié</h3>
-                    <p class="mt-2 text-gray-500 dark:text-gray-400">Les premiers articles arrivent bientôt !</p>
+                    <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">No articles published</h3>
+                    <p class="mt-2 text-gray-500 dark:text-gray-400">The first articles are coming soon!</p>
                 </div>
             @endif
         </div>
@@ -281,7 +281,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Tags populaires</h3>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Popular tags</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
                         @php
@@ -309,7 +309,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Statistiques</h3>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Statistics</h3>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
@@ -326,7 +326,7 @@
                         </div>
                         <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl">
                             <div class="text-2xl font-bold text-cyan-600 dark:text-cyan-400">2025</div>
-                            <div class="text-sm text-gray-600 dark:text-gray-400">Depuis</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">From</div>
                         </div>
                     </div>
                 </div>

@@ -8,15 +8,15 @@
     <!-- Header -->
     <div class="flex items-center justify-between mb-6">
         <div>
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Créer un nouvel article</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Rédigez et publiez votre article</p>
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Create a new article</h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Write and publish your article</p>
         </div>
         <a href="{{ route('test.auth') }}"
            class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
             </svg>
-            Retour
+           Back
         </a>
     </div>
 
@@ -29,7 +29,7 @@
             <!-- Title -->
             <div class="mb-6">
                 <label for="title" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Titre de l'article <span class="text-red-500">*</span>
+                   Article title <span class="text-red-500">*</span>
                 </label>
                 <input type="text" 
                        id="title" 
@@ -156,12 +156,12 @@
                 
                 <!-- Status -->
                 <div class="mb-4">
-                    <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Statut</label>
+                    <label for="status" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Status</label>
                     <select id="status" 
                             name="status"
                             class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white">
-                        <option value="draft" {{ old('status') === 'draft' ? 'selected' : '' }}>Brouillon</option>
-                        <option value="published" {{ old('status') === 'published' ? 'selected' : '' }}>Publié</option>
+                        <option value="draft" {{ old('status') === 'draft' ? 'selected' : '' }}>Draft</option>
+                        <option value="published" {{ old('status') === 'published' ? 'selected' : '' }}>Published</option>
                     </select>
                     @error('status')
                         <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
@@ -175,12 +175,12 @@
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        Créer l'article
+                       Create article
                     </button>
                     
                     <a href="{{ route('admin.articles.index') }}" 
                        class="w-full inline-flex justify-center items-center px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
-                        Annuler
+                        Cancel
                     </a>
                 </div>
             </div>

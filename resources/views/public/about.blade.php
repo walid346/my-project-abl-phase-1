@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
-@section('title', 'À propos - Mon Blog Personnel')
-@section('description', 'Découvrez qui je suis, mon parcours et ma passion pour le développement web et les technologies modernes.')
+@section('title', __('public.about_meta_title'))
+@section('description', __('public.about_meta_description'))
 
 @section('content')
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -13,18 +13,16 @@
             </svg>
         </div>
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            À propos de moi
+            {{ __('public.about_me') }}
         </h1>
         <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Passionné par le développement web et les technologies modernes, je partage ici mes expériences, découvertes et réflexions autour du code, ainsi que mes connaissances personnelles dans des domaines variés.
-
-
+            {{ __('public.about_description') }}
         </p>
     </div>
 
     <!-- Contact Section -->
     <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Me contacter</h2>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">{{ __('public.contact_me') }}</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Email -->
@@ -74,12 +72,14 @@
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Mon parcours</h2>
             
             <p class="text-gray-600 dark:text-gray-300 mb-6">
-               Développeur web passionné, j’ai eu l’opportunité de travailler sur des projets variés, mêlant conception, développement et optimisation. Ce blog est le reflet de cette diversité : j’y partage des articles autour du développement web, mais aussi sur des thématiques qui me passionnent comme l’aviation, le marketing digital, l’actualité technologique, la productivité ou encore les conseils pratiques. Mon objectif est de documenter mes expériences, transmettre mes connaissances et proposer des ressources utiles à celles et ceux qui souhaitent apprendre, progresser ou simplement découvrir.
+               As a passionate web developer, I've had the opportunity to work on a variety of projects, mixing design, development and optimization. This blog is a reflection of this diversity: I share articles about web development, but also about topics I'm passionate about, such as aviation, digital marketing, technology news, productivity and practical advice. My aim is to document my experiences, pass on my knowledge and offer useful resources to those who wish to learn, progress or simply discover.
+
+Translated with DeepL.com (free version)
             </p>
 
             <p class="text-gray-600 dark:text-gray-300 mb-6">
-              Vous êtes curieux, passionné ou simplement en quête d’inspiration ? Vous êtes au bon endroit.
-              Ce blog est bien plus qu’un journal technique : c’est un carnet de bord pour passionnés de web, de savoirs et d’initiatives.
+              Are you curious, passionate or simply looking for inspiration? You've come to the right place.
+              This blog is much more than a technical diary: it's a logbook for people with a passion for the web, knowledge and initiative.
             </p>
         </div>
 
@@ -168,7 +168,7 @@
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Code & Innovation</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300 text-sm">
-                        Passionné par les frameworks modernes, l'architecture logicielle et les nouvelles technologies qui façonnent le web de demain.
+                        Passionate about modern frameworks, software architecture and the new technologies shaping tomorrow's web.
                     </p>
                 </div>
 
@@ -180,10 +180,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Marketing Digital</h3>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Digital Marketing</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300 text-sm">
-                        Stratégies digitales, SEO, content marketing et analyse de données pour comprendre l'écosystème numérique actuel.
+                      Digital strategies, SEO, content marketing and data analysis to understand today's digital ecosystem.
                     </p>
                 </div>
 
@@ -198,7 +198,7 @@
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">IA & Innovation</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300 text-sm">
-                        Exploration des possibilités offertes par l'IA, machine learning et leur intégration dans le développement moderne.
+                        Exploring the possibilities offered by AI, machine learning and their integration into modern development.
                     </p>
                 </div>
 
@@ -213,7 +213,7 @@
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Aviation</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300 text-sm">
-                        Fascination pour l'aéronautique, les technologies de vol, et l'évolution de l'industrie aérienne moderne.
+                       A fascination with aeronautics, flight technology and the evolution of the modern airline industry.
                     </p>
                 </div>
 
@@ -228,7 +228,7 @@
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Productivité</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300 text-sm">
-                        Méthodes d'organisation, outils d'efficacité et techniques pour optimiser le temps et les performances.
+                      Organization methods, efficiency tools and techniques to optimize time and performance.
                     </p>
                 </div>
 
@@ -243,7 +243,7 @@
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Actualités Tech</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300 text-sm">
-                        Veille technologique, tendances émergentes et analyse des innovations qui transforment notre quotidien.
+                        Technology watch, emerging trends and analysis of the innovations that are transforming our daily lives.
                     </p>
                 </div>
             </div>
@@ -251,9 +251,9 @@
             <!-- Citation inspirante -->
             <div class="mt-8 p-6 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg border-l-4 border-indigo-500">
                 <blockquote class="text-lg italic text-gray-700 dark:text-gray-300 mb-2">
-                    "La curiosité est le moteur de l'innovation. Chaque domaine exploré enrichit notre vision du monde et nourrit notre créativité."
+                    "Curiosity is the driving force behind innovation. Every field we explore enriches our vision of the world and feeds our creativity."
                 </blockquote>
-                <cite class="text-sm text-gray-500 dark:text-gray-400">— Ma philosophie personnelle</cite>
+                <cite class="text-sm text-gray-500 dark:text-gray-400">- My personal philosophy</cite>
             </div>
         </div>
 

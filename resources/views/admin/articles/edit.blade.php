@@ -20,7 +20,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
                     </svg>
-                    Voir l'article
+                  view article
                 </a>
             @endif
             <a href="{{ route('admin.articles.index') }}" 
@@ -28,7 +28,7 @@
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
-                Retour
+               back
             </a>
         </div>
     </div>
@@ -99,10 +99,10 @@
                              alt="{{ $article->title }}" 
                              class="w-32 h-32 object-cover rounded-lg">
                         <div>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Image de couverture actuelle</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Current cover image</p>
                             <label class="flex items-center mt-2">
                                 <input type="checkbox" name="remove_image" value="1" class="h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 dark:border-gray-600 rounded">
-                                <span class="ml-2 text-sm text-red-600 dark:text-red-400">Supprimer l'image</span>
+                                <span class="ml-2 text-sm text-red-600 dark:text-red-400">delete image</span>
                             </label>
                         </div>
                     </div>
@@ -121,18 +121,18 @@
                         </svg>
                         <div id="upload-text" class="flex text-sm text-gray-600 dark:text-gray-400">
                             <label for="image" class="relative cursor-pointer bg-white dark:bg-gray-800 rounded-md font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                <span>Télécharger un fichier</span>
+                                <span>upload file</span>
                                 <input id="image" name="image" type="file" accept="image/*" class="sr-only">
                             </label>
-                            <p class="pl-1">ou glisser-déposer</p>
+                            <p class="pl-1">or drag and drop</p>
                         </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF jusqu'à 10MB</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF to 10MB</p>
 
                         <!-- Prévisualisation de l'image -->
                         <div id="image-preview" class="hidden mt-4">
                             <img id="preview-img" src="" alt="Prévisualisation" class="mx-auto max-h-48 rounded-lg shadow-md">
                             <button type="button" id="remove-image" class="mt-2 text-sm text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300">
-                                Supprimer l'image
+                                delete image
                             </button>
                         </div>
                     </div>

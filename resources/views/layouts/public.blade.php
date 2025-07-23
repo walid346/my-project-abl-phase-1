@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Mon Blog Personnel')</title>
-    <meta name="description" content="@yield('description', 'Un blog personnel sur la technologie et le développement web')">
+    <title>@yield('title', __('public.site_title'))</title>
+    <meta name="description" content="@yield('description', __('public.blog_description'))">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -33,9 +33,9 @@
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                                Mon Blog Tech
+                                {{ __('public.site_title') }}
                             </h1>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 -mt-1">Développement & Innovation</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 -mt-1">{{ __('public.site_tagline') }}</p>
                         </div>
                     </a>
                 </div>
@@ -47,7 +47,7 @@
                         <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                         </svg>
-                        Accueil
+                        {{ __('public.home') }}
                         @if(request()->routeIs('public.home'))
                             <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-indigo-600 rounded-full"></div>
                         @endif
@@ -58,7 +58,7 @@
                         <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        À propos
+                        {{ __('public.about') }}
                         @if(request()->routeIs('public.about'))
                             <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-indigo-600 rounded-full"></div>
                         @endif
@@ -71,7 +71,7 @@
                                 <input type="text"
                                        name="q"
                                        value="{{ request('q') }}"
-                                       placeholder="Rechercher un article..."
+                                       placeholder="{{ __('public.search_placeholder') }}"
                                        class="w-80 pl-12 pr-4 py-3 text-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent dark:text-white placeholder-gray-500 dark:placeholder-gray-400 transition-all duration-300">
                                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                     <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,24 +148,24 @@
         <div x-data="{ mobileMenuOpen: false }" x-show="mobileMenuOpen" x-transition class="md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
                 <a href="{{ route('public.home') }}" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400">
-                    Accueil
+                    {{ __('public.home') }}
                 </a>
                 <a href="{{ route('public.about') }}" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400">
-                    À propos
+                    {{ __('public.about') }}
                 </a>
                 @auth
                     <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400">
-                        Dashboard
+                        {{ __('public.dashboard') }}
                     </a>
                     <form method="POST" action="{{ route('logout') }}" class="block">
                         @csrf
                         <button type="submit" class="w-full text-left px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400">
-                            Déconnexion
+                            {{ __('public.logout') }}
                         </button>
                     </form>
                 @else
                     <a href="{{ route('login') }}" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400">
-                        Connexion
+                        {{ __('public.login') }}
                     </a>
                 @endauth
             </div>
@@ -183,20 +183,19 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- About -->
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Mon Blog</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">{{ __('public.site_title') }}</h3>
                     <p class="text-gray-600 dark:text-gray-400">
-                        Un blog personnel dédié au partage de connaissances sur le développement web, 
-                        les technologies modernes et mes expériences en programmation.
+                        {{ __('public.blog_description') }}
                     </p>
                 </div>
 
                 <!-- Quick Links -->
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Liens rapides</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">{{ __('public.quick_links') }}</h3>
                     <ul class="space-y-2">
-                        <li><a href="{{ route('public.home') }}" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">Accueil</a></li>
-                        <li><a href="{{ route('public.about') }}" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">À propos</a></li>
-                        <li><a href="{{ route('login') }}" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">Administration</a></li>
+                        <li><a href="{{ route('public.home') }}" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">{{ __('public.home') }}</a></li>
+                        <li><a href="{{ route('public.about') }}" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">{{ __('public.about') }}</a></li>
+                        <li><a href="{{ route('login') }}" class="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">{{ __('public.administration') }}</a></li>
                     </ul>
                 </div>
 

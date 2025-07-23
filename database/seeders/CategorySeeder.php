@@ -17,11 +17,18 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'Développement Web', 'description' => 'Articles sur le développement frontend et backend.'],
-            ['name' => 'Design UI/UX', 'description' => 'Conseils et tendances en design d\'interface utilisateur et expérience utilisateur.'],
-            ['name' => 'Marketing Digital', 'description' => 'Stratégies et outils de marketing en ligne.'],
-            ['name' => 'Productivité', 'description' => 'Méthodes et astuces pour améliorer l\'efficacité personnelle et professionnelle.'],
-            ['name' => 'Actualités Tech', 'description' => 'Les dernières nouvelles et innovations technologiques.'],
+            ['name' => 'Web Development', 'description' => 'Articles on frontend and backend development.'],
+            ['name' => 'UI/UX Design', 'description' => 'Tips and trends in user interface and user experience design.'],
+            ['name' => 'Digital Marketing', 'description' => 'Online marketing strategies and tools.'],
+            ['name' => 'Productivity', 'description' => 'Methods and tips to improve personal and professional efficiency.'],
+            ['name' => 'Tech News', 'description' => 'The latest news and technological innovations.'],
+            ['name' => 'Security', 'description' => 'Cybersecurity and web security best practices.'],
+            ['name' => 'DevOps', 'description' => 'Development operations and deployment strategies.'],
+            ['name' => 'Mobile', 'description' => 'Mobile development and progressive web apps.'],
+            ['name' => 'AI', 'description' => 'Artificial intelligence and machine learning.'],
+            ['name' => 'Sport', 'description' => 'Sports analysis and performance insights.'],
+            ['name' => 'Aviation', 'description' => 'Aviation industry and air transport innovations.'],
+            ['name' => 'Design', 'description' => 'Web design and visual design principles.']
         ];
 
         foreach ($categories as $categoryData) {
@@ -35,7 +42,5 @@ class CategorySeeder extends Seeder
                 ]
             );
         }
-
-        
     }
 }

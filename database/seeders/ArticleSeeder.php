@@ -41,143 +41,143 @@ class ArticleSeeder extends Seeder
         // Créer des articles avec du contenu varié
         $articles = [
             [
-                'title' => 'Introduction à Laravel : Le Framework PHP Moderne',
-                'content' => 'Laravel est un framework PHP élégant et expressif qui simplifie le développement web. Avec son architecture MVC robuste, Laravel offre des outils puissants comme Eloquent ORM, Blade templating, et Artisan CLI. Ce framework révolutionne la façon dont nous construisons des applications web modernes en PHP.',
-                'category' => 'Développement Web',
+                'title' => 'Introduction to Laravel: The Modern PHP Framework',
+                'content' => 'Laravel is an elegant and expressive PHP framework that simplifies web development. With its robust MVC architecture, Laravel offers powerful tools such as Eloquent ORM, Blade templating, and Artisan CLI. This framework revolutionizes the way we build modern web applications in PHP.',
+                'category' => 'Web Development',
                 'tags' => ['PHP', 'Laravel', 'Backend']
             ],
             [
-                'title' => 'Maîtriser JavaScript ES6+ : Les Nouvelles Fonctionnalités',
-                'content' => 'JavaScript ES6+ apporte de nombreuses améliorations au langage : arrow functions, destructuring, modules, async/await, et bien plus. Ces fonctionnalités modernes permettent d\'écrire du code plus propre, plus lisible et plus maintenable. Découvrez comment ces outils transforment le développement JavaScript.',
-                'category' => 'Développement Web',
+                'title' => 'Mastering JavaScript ES6+: The New Features',
+                'content' => 'JavaScript ES6+ brings a host of improvements to the language: arrow functions, destructuring, modules, async/await, and much more. These modern features allow you to write cleaner, more readable and more maintainable code. Discover how these tools are transforming JavaScript development.',
+                'category' => 'Web Development',
                 'tags' => ['JavaScript', 'Frontend', 'ES6']
             ],
             [
-                'title' => 'Guide Complet de React : Construire des Interfaces Modernes',
-                'content' => 'React révolutionne le développement d\'interfaces utilisateur avec ses composants réutilisables et son Virtual DOM. Apprenez les hooks, le state management, et les meilleures pratiques pour créer des applications web interactives et performantes. React est devenu incontournable dans l\'écosystème JavaScript moderne.',
-                'category' => 'Développement Web',
+                'title' => 'Complete Guide to React: Building Modern Interfaces',
+                'content' => 'React revolutionizes user interface development with its reusable components and Virtual DOM. Learn hooks, state management and best practices for creating high-performance, interactive web applications. React has become an essential part of the modern JavaScript ecosystem.',
+                'category' => 'Web Development',
                 'tags' => ['React', 'JavaScript', 'Frontend']
             ],
             [
-                'title' => 'Optimisation des Performances Web : Techniques Avancées',
-                'content' => 'L\'optimisation des performances web est cruciale pour l\'expérience utilisateur. Explorez les techniques de lazy loading, compression d\'images, minification CSS/JS, mise en cache, et optimisation du Critical Rendering Path. Ces stratégies peuvent réduire significativement les temps de chargement.',
-                'category' => 'Productivité',
-                'tags' => ['Performance', 'Optimisation', 'UX']
+                'title' => 'Web Performance Optimization: Advanced Techniques',
+                'content' => 'Web performance is crucial for user experience and SEO. Learn advanced optimization techniques: lazy loading, code splitting, image optimization, caching strategies, and performance monitoring. Discover how to create lightning-fast web applications that delight users.',
+                'category' => 'Web Development',
+                'tags' => ['Performance', 'Optimization', 'Frontend']
             ],
             [
-                'title' => 'Sécurité Web : Protéger vos Applications contre les Menaces',
-                'content' => 'La sécurité web est fondamentale dans le développement moderne. Découvrez comment vous protéger contre XSS, CSRF, injection SQL, et autres vulnérabilités. Implémentez HTTPS, validation des données, authentification robuste, et suivez les meilleures pratiques de sécurité pour protéger vos utilisateurs.',
-                'category' => 'Sécurité',
-                'tags' => ['Sécurité', 'Cybersécurité', 'HTTPS']
+                'title' => 'Web Security: Protecting your Applications from Threats',
+                'content' => 'Web security is fundamental to modern development. Find out how to protect against XSS, CSRF, SQL injection and other vulnerabilities. Implement HTTPS, data validation, strong authentication, and follow security best practices to protect your users.',
+                'category' => 'Security',
+                'tags' => ['Security', 'Cybersecurity', 'HTTPS']
             ],
             [
-                'title' => 'API REST avec Node.js : Architecture et Bonnes Pratiques',
-                'content' => 'Node.js excelle dans la création d\'APIs REST performantes. Apprenez à structurer vos endpoints, gérer l\'authentification JWT, implémenter la pagination, et optimiser les requêtes de base de données. Une API bien conçue est la fondation d\'applications web modernes et évolutives.',
-                'category' => 'Développement Web',
+                'title' => 'API REST with Node.js: Architecture and Best Practices',
+                'content' => 'Node.js excels at creating high-performance REST APIs. Learn how to structure your endpoints, manage JWT authentication, implement pagination, and optimize database queries. A well-designed API is the foundation of modern, scalable web applications.',
+                'category' => 'Web Development',
                 'tags' => ['Node.js', 'API', 'Backend']
             ],
             [
-                'title' => 'CSS Grid et Flexbox : Maîtriser les Layouts Modernes',
-                'content' => 'CSS Grid et Flexbox révolutionnent la création de layouts web. Grid excelle pour les structures bidimensionnelles complexes, tandis que Flexbox perfectionne l\'alignement unidimensionnel. Ensemble, ils offrent un contrôle précis sur la disposition, remplaçant les anciennes techniques de float et positioning.',
+                'title' => 'CSS Grid and Flexbox: Mastering Modern Layouts',
+                'content' => 'CSS Grid and Flexbox are revolutionizing the creation of web layouts. Grid excels at complex two-dimensional structures, while Flexbox perfects one-dimensional alignment. Together, they offer precise control over layout, replacing older float and positioning techniques.',
                 'category' => 'Design',
                 'tags' => ['CSS', 'Frontend', 'Design']
             ],
             [
-                'title' => 'DevOps pour Développeurs : CI/CD et Déploiement Automatisé',
-                'content' => 'L\'intégration continue et le déploiement continu (CI/CD) transforment le cycle de développement. Découvrez GitHub Actions, Docker, et les pipelines automatisés. Ces outils permettent des déploiements fiables, des tests automatisés, et une collaboration d\'équipe plus efficace.',
+                'title' => 'DevOps for Developers: CI/CD and Automated Deployment',
+                'content' => 'Continuous integration and continuous deployment (CI/CD) are transforming the development cycle. Discover GitHub Actions, Docker, and automated pipelines. These tools enable reliable deployments, automated testing, and more effective team collaboration.',
                 'category' => 'DevOps',
                 'tags' => ['DevOps', 'CI/CD', 'Docker']
             ],
             [
-                'title' => 'Progressive Web Apps : L\'Avenir du Web Mobile',
-                'content' => 'Les Progressive Web Apps (PWA) combinent le meilleur du web et des applications natives. Avec les Service Workers, le cache intelligent, et les notifications push, les PWAs offrent des expériences utilisateur exceptionnelles, même hors ligne. Elles représentent l\'évolution naturelle du web mobile.',
+                'title' => 'Progressive Web Apps: The Future of the Mobile Web',
+                'content' => 'Progressive Web Apps (PWAs) combine the best of the web and native applications. With Service Workers, intelligent caching and push notifications, PWAs offer exceptional user experiences, even offline. They represent the natural evolution of the mobile web.',
                 'category' => 'Mobile',
                 'tags' => ['PWA', 'Mobile', 'Frontend']
             ],
             [
-                'title' => 'Intelligence Artificielle et Développement Web : Nouvelles Perspectives',
-                'content' => 'L\'IA transforme le développement web avec des outils comme GitHub Copilot, l\'optimisation automatique, et la personnalisation intelligente. Explorez comment intégrer des APIs d\'IA, automatiser les tâches répétitives, et créer des expériences utilisateur adaptatives. L\'IA devient un partenaire indispensable du développeur moderne.',
-                'category' => 'IA',
-                'tags' => ['IA', 'Machine Learning', 'Innovation']
+                'title' => 'Artificial Intelligence and Web Development: New Perspectives',
+                'content' => 'AI is transforming web development with tools like GitHub Copilot, automatic optimization, and intelligent personalization. Explore how to integrate AI APIs, automate repetitive tasks, and create adaptive user experiences. AI is becoming an indispensable partner for the modern developer.',
+                'category' => 'AI',
+                'tags' => ['AI', 'Machine Learning', 'Innovation']
             ],
             [
-                'title' => 'Basketball : L\'Art de la Performance et de la Stratégie Moderne',
-                'content' => 'Le basketball moderne a évolué vers un sport ultra-technique où la data analytics révolutionne les stratégies. De la NBA aux championnats européens, découvrez comment les équipes utilisent l\'intelligence artificielle pour analyser les performances, optimiser les tactiques et développer les talents. Les nouvelles technologies transforment la façon dont nous comprenons et pratiquons ce sport spectaculaire.
+                'title' => 'Basketball: The Art of Modern Performance and Strategy',
+                'content' => 'Modern basketball has evolved into an ultra-technical sport where data analytics is revolutionizing strategies. From the NBA to the European leagues, discover how teams are using artificial intelligence to analyze performance, optimize tactics and develop talent. New technologies are transforming the way we understand and play this spectacular sport.
 
-## L\'Évolution Tactique du Basketball
+## The Tactical Evolution of Basketball
 
-### La Révolution du Tir à 3 Points
-Le basketball moderne privilégie l\'efficacité statistique. Les équipes NBA tirent désormais plus de 40 tirs à 3 points par match, contre 12 en 2000. Cette évolution s\'appuie sur l\'analyse des "expected points per shot" qui démontre la supériorité mathématique du tir longue distance.
+### The 3-Point Shooting Revolution
+Modern basketball is all about statistical efficiency. NBA teams now shoot more than 40 3-pointers per game, up from 12 in 2000. This evolution is based on "expected points per shot" analysis, which demonstrates the mathematical superiority of long-range shooting.
 
-### Stratégies Défensives Modernes
-- **Switch Defense** : Changements systématiques sur écrans
-- **Zone Hybride** : Mélange entre défense de zone et individuelle
-- **Help and Recover** : Aide défensive avec retour rapide
-- **Analytics-Driven** : Positionnement basé sur les données
+### Modern Defensive Strategies
+- **Switch Defense**: Systematic screen changes
+- **Zone Hybrid**: Mixture of zone and individual defense
+- **Help and Recover**: Defensive help with quick return
+- **Analytics-Driven**: Data-driven positioning
 
-## La Data Analytics au Service de la Performance
+## Data Analytics for Performance
 
-### Métriques Avancées
-Les statistiques traditionnelles (points, rebonds, passes) laissent place à des métriques sophistiquées :
-- **Player Efficiency Rating (PER)** : Efficacité globale du joueur
-- **True Shooting Percentage** : Pourcentage de tir réel incluant les lancers
-- **Win Shares** : Contribution aux victoires de l\'équipe
-- **Box Plus/Minus** : Impact sur le différentiel de points
+### Advanced Metrics
+Traditional statistics (points, rebounds, assists) give way to sophisticated metrics:
+- **Player Efficiency Rating (PER)**: Overall player efficiency
+- **True Shooting Percentage**: Percentage of true shooting, including throws
+- **Win Shares**: Contribution to team wins
+- **Box Plus/Minus**: Impact on points differential
 
-### Technologies de Tracking
-- **SportVU Cameras** : Suivi en temps réel des mouvements
-- **Wearable Sensors** : Monitoring de la charge d\'entraînement
-- **Shot Analytics** : Analyse précise de chaque tir
-- **Biomechanical Analysis** : Optimisation des gestes techniques
+### Tracking Technologies
+- **SportVU Cameras**: Real-time movement tracking
+- **Wearable Sensors**: Training load monitoring
+- **Shot Analytics**: Precise analysis of each shot
+- **Biomechanical Analysis**: Optimization of technical gestures
 
-## Formation et Développement des Talents
+## Training and Talent Development
 
-### Programmes Jeunes Modernes
-Les académies de basketball intègrent désormais :
-- **Préparation mentale** : Gestion du stress et concentration
-- **Nutrition sportive** : Optimisation des performances
-- **Récupération active** : Protocoles de régénération
-- **Formation tactique** : Compréhension du jeu moderne
+### Modern Youth Programs
+Basketball academies now include:
+- **Mental Preparation**: Stress management and concentration
+- **Sports Nutrition**: Optimizing performance
+- **Active Recovery**: Regeneration protocols
+- **Tactical Training**: Understanding the modern game
 
-### L\'Impact des Réseaux Sociaux
-Les jeunes talents utilisent les plateformes digitales pour :
-- Analyser les techniques des professionnels
-- Partager leurs performances
-- Attirer l\'attention des recruteurs
-- Développer leur personal branding
+### The Impact of Social Networks
+Young talents use digital platforms to:
+- Analyze professional techniques
+- Share their performances
+- Attract the attention of recruiters
+- Develop their personal branding
 
-## Le Basketball Français en Pleine Ascension
+## French Basketball on the Rise
 
-### Succès Internationaux
-La France s\'impose comme une puissance mondiale :
-- **Médaille d\'argent olympique 2021** : Performance historique
-- **Talents NBA** : Gobert, Fournier, Batum, Wembanyama
-- **Championnat d\'Europe** : Régularité au plus haut niveau
-- **Formation** : Excellence des centres de formation
+### International Success
+France establishes itself as a world power:
+- **2021 Olympic Silver Medal**: Historic performance
+- **NBA Talents**: Gobert, Fournier, Batum, Wembanyama
+- **European Championship**: Consistency at the highest level
+- **Training**: Excellence of training centers
 
-### Développement du Basketball Féminin
-Le basketball féminin français connaît un essor remarquable :
-- **Professionnalisation** : Amélioration des conditions
-- **Médiatisation** : Couverture télévisuelle accrue
-- **Talents émergents** : Nouvelle génération prometteuse
-- **Infrastructures** : Investissements dans les équipements
+### Women\'s Basketball Development
+French women\'s basketball is undergoing remarkable growth:
+- **Professionalization**: Improved conditions
+- **Media Coverage**: Increased television coverage
+- **Emerging Talents**: Promising new generation
+- **Infrastructure**: Investment in equipment
 
-## L\'Avenir du Basketball
+## The Future of Basketball
 
-### Innovations Technologiques
-- **Réalité Virtuelle** : Entraînement immersif
-- **Intelligence Artificielle** : Analyse prédictive des performances
-- **Biomécanique 3D** : Optimisation des mouvements
-- **Streaming Interactif** : Nouvelle expérience spectateur
+### Technological Innovations
+- **Virtual Reality**: Immersive training
+- **Artificial Intelligence**: Predictive performance analysis
+- **3D Biomechanics**: Motion optimization
+- **Interactive Streaming**: New spectator experience
 
-### Enjeux Sociétaux
-Le basketball moderne s\'engage sur :
-- **Inclusion sociale** : Sport accessible à tous
-- **Égalité des genres** : Promotion du basketball féminin
-- **Développement durable** : Événements éco-responsables
-- **Éducation** : Valeurs transmises par le sport
+### Societal Challenges
+Modern basketball is committed to:
+- **Social Inclusion**: Sport accessible to all
+- **Gender Equality**: Promotion of women\'s basketball
+- **Sustainable Development**: Eco-responsible events
+- **Education**: Values transmitted through sport
 
-Le basketball continue d\'évoluer, mêlant tradition sportive et innovation technologique pour offrir un spectacle toujours plus captivant et des performances toujours plus élevées.',
+Basketball continues to evolve, combining sporting tradition and technological innovation to offer an ever more captivating spectacle and ever higher performances.',
                 'category' => 'Sport',
                 'tags' => ['Basketball', 'Sport', 'Performance']
             ],
@@ -219,7 +219,5 @@ Le basketball continue d\'évoluer, mêlant tradition sportive et innovation tec
                 $article->tags()->attach($articleTags, ['assigned_at' => now()]);
             }
         }
-
-      
     }
 }

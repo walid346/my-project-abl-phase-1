@@ -4,7 +4,7 @@
             Administration
         </h2>
         <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">
-            Connectez-vous à votre espace d'administration
+           Log in to your administration area
         </p>
     </div>
 
@@ -44,13 +44,13 @@
 
         <div class="flex items-center justify-end mt-6">
             <x-primary-button class="w-full justify-center">
-                Se connecter
+                Login
             </x-primary-button>
         </div>
 
         <div class="mt-4 text-center">
             <a href="{{ route('public.home') }}" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">
-                ← Retour au site
+               ← Back to website
             </a>
         </div>
     </form>

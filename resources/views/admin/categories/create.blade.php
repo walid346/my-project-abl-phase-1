@@ -8,15 +8,15 @@
     <!-- Header -->
     <div class="flex items-center justify-between mb-6">
         <div>
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Créer une nouvelle catégorie</h2>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Organisez vos articles par thématiques</p>
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Create a new category</h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Organize your articles by theme</p>
         </div>
         <a href="{{ route('test.auth') }}"
            class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
             </svg>
-            Retour
+          Back
         </a>
     </div>
 
@@ -28,7 +28,7 @@
             <!-- Name -->
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Nom de la catégorie <span class="text-red-500">*</span>
+                   category name <span class="text-red-500">*</span>
                 </label>
                 <input type="text" 
                        id="name" 
@@ -49,9 +49,9 @@
                 </label>
                 <div class="flex items-center">
                     <span class="text-sm text-gray-500 dark:text-gray-400">{{ url('/category/') }}/</span>
-                    <span id="slug-preview" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 ml-1">nom-de-la-categorie</span>
+                    <span id="slug-preview" class="text-sm font-medium text-indigo-600 dark:text-indigo-400 ml-1">category name</span>
                 </div>
-                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">L'URL sera générée automatiquement à partir du nom</p>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">The URL will be generated automatically from the name</p>
             </div>
 
             <!-- Description -->
@@ -67,13 +67,13 @@
                 @error('description')
                     <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                 @enderror
-                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Cette description peut être affichée sur le site public</p>
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">This description can be displayed on the public site</p>
             </div>
 
             <!-- Image de catégorie -->
             <div class="mb-6">
                 <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Image de la catégorie
+                    Category image
                 </label>
                 <div id="dropzone" class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-md hover:border-indigo-400 dark:hover:border-indigo-500 transition-colors duration-300">
                     <div class="space-y-1 text-center">
@@ -85,7 +85,7 @@
                                 <span>Télécharger un fichier</span>
                                 <input id="image" name="image" type="file" accept="image/*" class="sr-only">
                             </label>
-                            <p class="pl-1">ou glisser-déposer</p>
+                            <p class="pl-1">or drag and drop</p>
                         </div>
                         <p class="text-xs text-gray-500 dark:text-gray-400">PNG, JPG, GIF jusqu'à 10MB</p>
 
@@ -93,7 +93,7 @@
                         <div id="image-preview" class="hidden mt-4">
                             <img id="preview-img" src="" alt="Prévisualisation" class="mx-auto max-h-48 rounded-lg shadow-md">
                             <button type="button" id="remove-image" class="mt-2 text-sm text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300">
-                                Supprimer l'image
+                               delete image
                             </button>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                     <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                 @enderror
                 <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-                    Cette image sera utilisée par défaut pour tous les articles de cette catégorie qui n'ont pas d'image spécifique.
+                    This image will be used by default for all items in this category that do not have a specific image.
                 </p>
             </div>
 
@@ -110,14 +110,14 @@
             <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
                 <a href="{{ route('admin.categories.index') }}" 
                    class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
-                    Annuler
+                    cancel
                 </a>
                 <button type="submit" 
                         class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    Créer la catégorie
+                   create category
                 </button>
             </div>
         </form>
@@ -130,13 +130,13 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
             <div>
-                <h3 class="text-sm font-medium text-blue-800 dark:text-blue-200">Conseils pour les catégories</h3>
+                <h3 class="text-sm font-medium text-blue-800 dark:text-blue-200">Tips for categories</h3>
                 <div class="mt-2 text-sm text-blue-700 dark:text-blue-300">
                     <ul class="list-disc list-inside space-y-1">
-                        <li>Utilisez des noms courts et descriptifs</li>
-                        <li>Évitez de créer trop de catégories (5-10 maximum recommandé)</li>
-                        <li>Chaque article ne peut appartenir qu'à une seule catégorie</li>
-                        <li>Les catégories aident vos lecteurs à naviguer dans votre contenu</li>
+                        <li>Use short, descriptive names</li>
+                        <li>Avoid creating too many categories (5-10 maximum recommended)</li>
+                        <li>Each item can belong to only one category.</li>
+                        <li>Categories help readers navigate your content</li>
                     </ul>
                 </div>
             </div>
