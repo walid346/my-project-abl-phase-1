@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UpdateAdminRequest;
+use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -19,7 +20,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth:admin')->except(['adminDirect']);
     }
 
     /**
@@ -128,7 +129,7 @@ class AdminController extends Controller
 
         $admin = Auth::guard('admin')->user();
         $old_username = $admin->username;
-        
+
         $admin->update([
             'username' => $request->username
         ]);
@@ -161,7 +162,7 @@ class AdminController extends Controller
      */
     private function logActivity($activity)
     {
-        \Log::info($activity, [
+        Log::info($activity, [
             'admin_id' => Auth::guard('admin')->id(),
             'admin_username' => Auth::guard('admin')->user()->username,
             'ip_address' => request()->ip(),
@@ -174,16 +175,15 @@ class AdminController extends Controller
 
 
 
-/////////
+    /////////
 
 
 
 
     public function adminDirect()
     {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
+       
 
         return redirect()->route('admin.dashboard');
     }
-    }
+}

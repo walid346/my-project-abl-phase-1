@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -239,30 +240,14 @@ class CategoryController extends Controller
         return $slug;
     }
 
-
-
-
-
-
-///////
-
-
-
-
-
-
-
  public function createCategory()
     {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
 
         return view('admin.categories.create');
     }
     public function storeCategory(Request $request)
     {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
+
 
         // Validation
         $validated = $request->validate([

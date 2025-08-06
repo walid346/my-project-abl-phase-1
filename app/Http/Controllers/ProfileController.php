@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Tag; 
+use Illuminate\Support\Str; 
+use App\Models\Article; 
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
+   
     public function edit(Request $request): View
     {
         return view('profile.edit', [
@@ -59,41 +60,12 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-
-
-
-
-
-
-
-
-/////
-
-
-
-public function updateProfile(Request $request)
-    {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
-
-        // Validation
-        $validated = $request->validate([
-            'username' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:admins,email,' . $admin->id,
-        ]);
-
-        // Mettre à jour l'admin
-        $admin->update($validated);
-
-        return redirect()->route('admin.profile.edit')->with('status', 'profile-updated');
-    }
+    /**
+     * Store multiple tags from a comma-separated string.
+     */
     public function storeMultipleTags(Request $request)
     {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
-
-        // Validation
-        $request->validate([
+     $request->validate([
             'tags' => 'required|string|max:1000',
         ]);
 
@@ -102,25 +74,24 @@ public function updateProfile(Request $request)
         $duplicateTags = [];
 
         foreach ($tagNames as $tagName) {
-            $tagName = trim($tagName);
-
+        $tagName = trim($tagName);
             if (empty($tagName)) {
                 continue;
             }
 
-            // Vérifier si le tag existe déjà
-            $existingTag = Tag::where('name', $tagName)->first();
-
-            if ($existingTag) {
-                $duplicateTags[] = $tagName;
-            } else {
-                // Créer le nouveau tag
-                $tag = Tag::create([
-                    'name' => $tagName,
+            // Utilisation de firstOrCreate pour simplifier la logique et gérer les doublons
+            $tag = Tag::firstOrCreate(
+                ['name' => $tagName], // Conditions pour trouver le tag
+                [
                     'slug' => Str::slug($tagName),
                     'description' => 'Tag créé automatiquement'
-                ]);
+                ] // Attributs à créer si le tag n'existe pas
+            );
+
+            if ($tag->wasRecentlyCreated) {
                 $createdTags[] = $tagName;
+            } else {
+                $duplicateTags[] = $tagName;
             }
         }
 
@@ -146,23 +117,18 @@ public function updateProfile(Request $request)
                 'tags_field' => $request->input('tags'),
                 'method' => $request->method(),
             ];
-
-            return response()->json($data);
+        return response()->json($data);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
 
+   
     public function simpleMultipleTags(Request $request)
     {
-        // Connexion automatique admin
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
-
-        // Récupérer le texte des tags
+        
         $tagsText = $request->input('tags', '');
-
-        if (empty($tagsText)) {
+     if (empty($tagsText)) {
             return redirect()->route('test.create.tag')->with('error', 'Veuillez entrer au moins un tag.');
         }
 
@@ -176,16 +142,18 @@ public function updateProfile(Request $request)
         $existingList = [];
 
         foreach ($tagNames as $tagName) {
-            if (strlen($tagName) < 2) continue;
+            if (strlen($tagName) < 2) continue; // Validation minimale de la longueur
 
-            $exists = Tag::where('name', $tagName)->exists();
-
-            if (!$exists) {
-                Tag::create([
-                    'name' => $tagName,
+            // Utilisation de firstOrCreate
+            $tag = Tag::firstOrCreate(
+                ['name' => $tagName],
+                [
                     'slug' => Str::slug($tagName),
                     'description' => 'Tag créé automatiquement'
-                ]);
+                ]
+            );
+
+            if ($tag->wasRecentlyCreated) {
                 $created++;
                 $createdList[] = $tagName;
             } else {
@@ -198,12 +166,11 @@ public function updateProfile(Request $request)
         if ($existing > 0) {
             $message .= ", {$existing} déjà existant(s)";
         }
+     return redirect()->route('admin.tags.index')->with('success', $message);
+    }
 
-        return redirect()->route('admin.tags.index')->with('success', $message);
     
-}
-
-     public function testHome()
+    public function testHome()
     {
         $articles = Article::with(['category', 'tags', 'admin'])
             ->where('status', 'published')

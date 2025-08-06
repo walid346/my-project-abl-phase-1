@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
@@ -35,26 +36,7 @@ Route::get('/tag/{slug}', [PublicController::class, 'filterByTag'])->name('publi
 the 5 first routes ??????
 */
 
-Route::get('/test', [TestController::class, 'basic'])->name('test.basic');
-Route::get('/test-db', [TestController::class, 'database'])->name('test.database');
-Route::get('/test-relations', [TestController::class, 'relations'])->name('test.relations');
-Route::get('/test-controller', [TestController::class, 'controller'])->name('test.controller');
-Route::get('/test-view', [TestController::class, 'view'])->name('test.view');
-Route::get('/test-auth', [AuthController::class, 'testAuth'])->name('test.auth');
-Route::get('/admin-direct', [AdminController::class, 'adminDirect'])->name('admin.direct');
-Route::get('/test-create-article', [ArticleController::class, 'createArticle'])->name('test.create.article');
-Route::get('/test-create-category', [CategoryController::class, 'createCategory'])->name('test.create.category');
-Route::get('/test-create-tag', [TagController::class, 'createTag'])->name('test.create.tag');
-Route::post('/test-store-category', [CategoryController::class, 'storeCategory'])->name('test.store.category');
-Route::post('/test-store-tag', [TagController::class, 'storeTag'])->name('test.store.tag');
-Route::post('/test-store-article', [ArticleController::class, 'storeArticle'])->name('test.store.article');
-Route::put('/test-update-article/{article}', [ArticleController::class, 'updateArticle'])->name('test.update.article');
-Route::patch('/test-update-profile', [ProfileController::class, 'updateProfile'])->name('test.update.profile');
-Route::post('/test-store-multiple-tags', [TagController::class, 'storeMultipleTags'])->name('test.store.multiple.tags');
-Route::post('/debug-multiple-tags', [TagController::class, 'debugMultipleTags'])->name('debug.multiple.tags');
-Route::post('/simple-multiple-tags', [TagController::class, 'simpleMultipleTags'])->name('simple.multiple.tags');
-Route::get('/test-article', [ArticleController::class, 'testArticle'])->name('test.article');
-Route::get('/test-home', [PublicController::class, 'testHome'])->name('test.home');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -101,5 +83,30 @@ Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(functi
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Route::get('/test', [TestController::class, 'basic'])->name('test.basic');
+    // Route::get('/test-db', [TestController::class, 'database'])->name('test.database');
+    // Route::get('/test-relations', [TestController::class, 'relations'])->name('test.relations');
+    // Route::get('/test-controller', [TestController::class, 'controller'])->name('test.controller');
+    // Route::get('/test-view', [TestController::class, 'view'])->name('test.view');
+    // Route::get('/test-auth', [AuthController::class, 'testAuth'])->name('test.auth');
+
 });
 
+Route::middleware(['auth:admin'])->group(function () {
+
+    Route::get('/admin-direct', [AdminController::class, 'adminDirect'])->name('admin.direct');
+    Route::get('/test-create-article', [ArticleController::class, 'createArticle'])->name('test.create.article');
+    Route::get('/test-create-category', [CategoryController::class, 'createCategory'])->name('test.create.category');
+    Route::get('/test-create-tag', [TagController::class, 'createTag'])->name('test.create.tag');
+    Route::post('/test-store-category', [CategoryController::class, 'storeCategory'])->name('test.store.category');
+    Route::post('/test-store-tag', [TagController::class, 'storeTag'])->name('test.store.tag');
+    Route::post('/test-store-article', [ArticleController::class, 'storeArticle'])->name('test.store.article');
+    Route::put('/test-update-article/{article}', [ArticleController::class, 'updateArticle'])->name('test.update.article');
+    Route::patch('/test-update-profile', [ProfileController::class, 'updateProfile'])->name('test.update.profile');
+    Route::post('/test-store-multiple-tags', [TagController::class, 'storeMultipleTags'])->name('test.store.multiple.tags');
+    Route::post('/debug-multiple-tags', [TagController::class, 'debugMultipleTags'])->name('debug.multiple.tags');
+    Route::post('/simple-multiple-tags', [TagController::class, 'simpleMultipleTags'])->name('simple.multiple.tags');
+    Route::get('/test-article', [ArticleController::class, 'testArticle'])->name('test.article');
+    Route::get('/test-home', [PublicController::class, 'testHome'])->name('test.home');
+
+});

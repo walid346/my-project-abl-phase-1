@@ -240,12 +240,10 @@ class MediaController extends Controller
      * @param \Illuminate\Http\UploadedFile $file
      * @param string $type
      * @return string
-     */
-    private function processImage($file, $type)
+     */ private function processImage($file, $type)
     {
         $image = Image::make($file);
-        
-        // Redimensionner selon le type
+
         switch ($type) {
             case 'article':
                 // Redimensionner pour les articles (max 1200px de largeur)

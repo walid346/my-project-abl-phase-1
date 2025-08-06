@@ -11,13 +11,7 @@
             <h2 class="text-xl font-semibold text-gray-900 dark:text-white">create new tag</h2>
             <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Label your items for better organization</p>
         </div>
-        <a href="{{ route('test.auth') }}"
-           class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-            </svg>
-           Back
-        </a>
+      
     </div>
 
     <!-- Form -->
@@ -77,10 +71,7 @@
 
             <!-- Actions -->
             <div class="flex items-center justify-end space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <a href="{{ route('test.auth') }}"
-                   class="px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-400 dark:hover:bg-gray-500 transition-colors">
-                    Annuler
-                </a>
+               
                 <button type="submit" 
                         class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

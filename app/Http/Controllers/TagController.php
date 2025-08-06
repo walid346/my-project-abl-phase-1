@@ -179,7 +179,7 @@ class TagController extends Controller
     public function popular(Request $request)
     {
         $limit = $request->get('limit', 10);
-        
+
         $popularTags = Tag::withCount('articles')
             ->orderBy('articles_count', 'desc')
             ->limit($limit)
@@ -200,7 +200,7 @@ class TagController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('q', '');
-        
+
         if (strlen($query) < 2) {
             return response()->json([]);
         }
@@ -228,7 +228,7 @@ class TagController extends Controller
 
         while (true) {
             $query = Tag::where('slug', $slug);
-            
+
             if ($excludeId) {
                 $query->where('id', '!=', $excludeId);
             }
@@ -289,7 +289,8 @@ class TagController extends Controller
             $message .= count($createdTags) . ' tag(s) créé(s) : ' . implode(', ', $createdTags);
         }
         if (count($duplicateTags) > 0) {
-            if ($message) $message .= ' | ';
+            if ($message)
+                $message .= ' | ';
             $message .= count($duplicateTags) . ' tag(s) déjà existant(s) : ' . implode(', ', $duplicateTags);
         }
 
@@ -300,20 +301,16 @@ class TagController extends Controller
 
 
 
-///
+    ///
 
 
-public function createTag()
+    public function createTag()
     {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
-
-        return view('admin.tags.create');
+     return view('admin.tags.create');
     }
     public function storeTag(Request $request)
     {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
+
 
         // Validation
         $validated = $request->validate([
@@ -328,4 +325,4 @@ public function createTag()
 
         return redirect()->route('admin.tags.index')->with('success', 'Tag "' . $validated['name'] . '" créé avec succès !');
     }
-    }
+}

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
+use App\Models\Admin;
 
 class ArticleController extends Controller
 {
@@ -372,9 +373,7 @@ public function relations()
 
     public function createArticle()
     {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
-
+       
         $categories = Category::all();
         $tags = Tag::all();
 
@@ -382,8 +381,7 @@ public function relations()
     }
     public function storeArticle(Request $request)
     {
-        $admin = Admin::where('email', 'admin@test.com')->first();
-        Auth::guard('admin')->login($admin);
+        
 
         // Validation
         $validated = $request->validate([
