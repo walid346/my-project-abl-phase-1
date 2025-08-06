@@ -308,4 +308,167 @@ class ArticleController extends Controller
     {
         return $file->store('articles', 'public');
     }
-}
+
+
+
+
+
+
+
+//////
+
+
+
+
+
+
+     
+
+
+
+
+
+
+public function relations()
+    {
+        try {
+            $article = Article::with(['category', 'tags', 'admin'])->first();
+            if ($article) {
+                return "Relations OK - Article: {$article->title}, Catégorie: " . ($article->category ? $article->category->name : 'Aucune');
+            }
+            return "Aucun article trouvé";
+        } catch (\Exception $e) {
+            return "Erreur Relations: " . $e->getMessage();
+        }
+    }
+
+    public function controller()
+    {
+        try {
+            $articles = Article::with(['category', 'tags', 'admin'])
+                ->where('status', 'published')
+                ->orderBy('published_at', 'desc')
+                ->paginate(6);
+
+            return "Contrôleur OK - " . $articles->count() . " articles récupérés";
+        } catch (\Exception $e) {
+            return "Erreur Contrôleur: " . $e->getMessage();
+        }
+    }
+
+    public function view()
+    {
+        try {
+            $articles = Article::with(['category', 'tags', 'admin'])
+                ->where('status', 'published')
+                ->orderBy('published_at', 'desc')
+                ->paginate(6);
+
+            return view('test-simple', compact('articles'));
+        } catch (\Exception $e) {
+            return "Erreur Vue: " . $e->getMessage();
+        }
+    }
+
+    public function createArticle()
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        $categories = Category::all();
+        $tags = Tag::all();
+
+        return view('admin.articles.create', compact('categories', 'tags'));
+    }
+    public function storeArticle(Request $request)
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        // Validation
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'excerpt' => 'nullable|string',
+            'category_id' => 'required|exists:categories,id',
+            'tags' => 'nullable|array',
+            'tags.*' => 'exists:tags,id',
+            'status' => 'required|in:draft,published',
+            'image' => 'nullable|image|max:2048'
+        ]);
+
+        // Générer un slug
+        $validated['slug'] = Str::slug($validated['title']);
+        $validated['admin_id'] = Auth::guard('admin')->id();
+
+        // Gérer l'upload d'image si présente
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('articles', 'public');
+        }
+
+        // Créer l'article
+        $article = Article::create($validated);
+
+        // Attacher les tags
+        if (isset($validated['tags'])) {
+            $article->tags()->attach($validated['tags']);
+        }
+
+        return redirect()->route('admin.articles.index')->with('success', 'Article créé avec succès !');
+    }
+
+    public function updateArticle(Request $request, Article $article)
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        // Validation
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'excerpt' => 'nullable|string',
+            'category_id' => 'nullable|exists:categories,id',
+            'tags' => 'nullable|array',
+            'tags.*' => 'exists:tags,id',
+            'status' => 'required|in:draft,published',
+            'image' => 'nullable|image|max:2048'
+        ]);
+
+        // Générer un nouveau slug si le titre a changé
+        if ($validated['title'] !== $article->title) {
+            $validated['slug'] = Str::slug($validated['title']);
+        }
+
+        // Gérer l'upload d'image si présente
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('articles', 'public');
+        }
+
+        // Gérer le changement de statut
+        if ($validated['status'] === 'published' && $article->status !== 'published') {
+            $validated['published_at'] = now();
+        } elseif ($validated['status'] === 'draft') {
+            $validated['published_at'] = null;
+        }
+
+        // Mettre à jour l'article
+        $article->update($validated);
+
+        // Mettre à jour les tags
+        if (isset($validated['tags'])) {
+            $article->tags()->sync($validated['tags']);
+        }
+
+        return redirect()->route('admin.articles.index')->with('success', 'Article "' . $validated['title'] . '" mis à jour avec succès !');
+    }
+    public function testArticle()
+    {
+        $article = Article::where('status', 'published')->first();
+
+        if ($article) {
+            return redirect()->route('public.article.show', $article->slug);
+        } else {
+            return "Aucun article publié trouvé. Créez d'abord un article avec le statut 'publié'.";
+        }
+    }
+    }

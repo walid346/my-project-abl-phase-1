@@ -296,4 +296,36 @@ class TagController extends Controller
         return redirect()->route('test.create.tag')
             ->with('success', $message ?: 'Aucun tag valide trouvé.');
     }
-}
+
+
+
+
+///
+
+
+public function createTag()
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        return view('admin.tags.create');
+    }
+    public function storeTag(Request $request)
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        // Validation
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:tags'
+        ]);
+
+        // Générer un slug
+        $validated['slug'] = Str::slug($validated['name']);
+
+        // Créer le tag
+        Tag::create($validated);
+
+        return redirect()->route('admin.tags.index')->with('success', 'Tag "' . $validated['name'] . '" créé avec succès !');
+    }
+    }

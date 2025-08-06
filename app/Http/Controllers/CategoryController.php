@@ -238,4 +238,44 @@ class CategoryController extends Controller
 
         return $slug;
     }
-}
+
+
+
+
+
+
+///////
+
+
+
+
+
+
+
+ public function createCategory()
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        return view('admin.categories.create');
+    }
+    public function storeCategory(Request $request)
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        // Validation
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:categories',
+            'description' => 'nullable|string'
+        ]);
+
+        // Générer un slug
+        $validated['slug'] = Str::slug($validated['name']);
+
+        // Créer la catégorie
+        Category::create($validated);
+
+        return redirect()->route('admin.categories.index')->with('success', 'Catégorie créée avec succès !');
+    }
+    }

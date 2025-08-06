@@ -121,4 +121,22 @@ class AuthController extends Controller
             ]);
         }
     }
-}
+
+
+
+
+
+
+
+
+////
+
+
+public function testAuth()
+    {
+        $admin = Admin::where('email', 'admin@test.com')->first();
+        Auth::guard('admin')->login($admin);
+
+        return redirect()->route('admin.dashboard')->with('success', 'Connexion automatique réussie !');
+    }
+    }
